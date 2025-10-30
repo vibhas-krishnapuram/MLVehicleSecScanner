@@ -1,0 +1,14 @@
+[
+    {
+        "type": "Weak Checksum Algorithm",
+        "severity": "Medium",
+        "real_world_example": "The Jeep Cherokee hack by Charlie Miller and Chris Valasek exploited weak checksum validation in vehicle communications.",
+        "recommended_fix": "Implement a stronger cryptographic hashing algorithm (e.g., SHA-256) for checksum calculations to enhance integrity verification."
+    },
+    {
+        "type": "Predictable Random Number Generator",
+        "severity": "High",
+        "real_world_example": "The Tesla Model S was found to be vulnerable due to predictable RNG used in security tokens, allowing unauthorized access.",
+        "recommended_fix": "Use a secure random number generator (e.g., C++11 <random>) that is not predictable and is suitable for cryptographic purposes."
+    }
+]

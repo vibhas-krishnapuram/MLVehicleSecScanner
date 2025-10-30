@@ -1,0 +1,44 @@
+[
+    {
+        "type": "Hardcoded Credentials",
+        "severity": "High",
+        "example": "Tesla firmware tested in the Leaked Tesla Model 3 ROM where admin access was achievable via hardcoded values.",
+        "recommended_fix": "Remove hardcoded secrets and use secure storage or management systems for sensitive data."
+    },
+    {
+        "type": "Plaintext Secret Storage",
+        "severity": "High",
+        "example": "Volkswagen Group's data privacy incidents related to storing sensitive information such as vehicle secrets in plaintext.",
+        "recommended_fix": "Use secure hash functions or encryption for storing sensitive information."
+    },
+    {
+        "type": "Weak Checksum Algorithm",
+        "severity": "Medium",
+        "example": "The Mercedes-Benz brake system had vulnerabilities due to inadequate checksums allowing attackers to bypass integrity checks.",
+        "recommended_fix": "Implement strong cryptographic checksum algorithms that can resist collision attacks."
+    },
+    {
+        "type": "Insufficient Authentication",
+        "severity": "High",
+        "example": "Mitsubishi's infotainment system was exposed to remote attacks due to inadequate authentication on telemetry data.",
+        "recommended_fix": "Implement proper authentication mechanisms to verify the source of telemetry data."
+    },
+    {
+        "type": "Insecure Logging Practices",
+        "severity": "Medium",
+        "example": "Audi found vulnerabilities in their systems where logs exposed sensitive information during debugging processes.",
+        "recommended_fix": "Implement logging policies that obfuscate or omit sensitive data."
+    },
+    {
+        "type": "Naive Access Control",
+        "severity": "High",
+        "example": "Jeep's vulnerable Uconnect system was exploited due to weak authentication mechanisms allowing unauthorized vehicle access.",
+        "recommended_fix": "Utilize multi-factor authentication and secure access control procedures."
+    },
+    {
+        "type": "Permissions on Configuration Files",
+        "severity": "Medium",
+        "example": "BMW faced security issues as their configuration files were stored without proper permissions, making them accessible.",
+        "recommended_fix": "Secure configuration files and apply necessary permissions to restrict access."
+    }
+]
