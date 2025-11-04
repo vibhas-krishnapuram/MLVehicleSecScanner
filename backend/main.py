@@ -4,6 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from scan_AI import scan_file
 import uuid
+import time
+
+
 
 import os
 
@@ -35,18 +38,20 @@ def root():
 
 @app.post("/upload/")
 async def upload_file(file: UploadFile = File(...)):
-    """Save uploaded file to the uploads/ folder"""
     file_path = os.path.join(UPLOAD_FOLDER, file.filename)
     with open(file_path, "wb") as f:
         f.write(await file.read())
 
-        file_id = str(uuid.uuid4())
-        files[file_id] = file.filename
-
     scan_file(file.filename)
-    
-    return {"filename": file.filename, "message": "File uploaded successfully and scanned!"}
 
+    # Wait until response file exists (max ~10s)
+    res_path = os.path.join(RESPONSE_FOLDER, f"{file.filename}_response.json")
+    for _ in range(20):  # 20 * 0.5s = 10 seconds max
+        if os.path.exists(res_path):
+            break
+        time.sleep(0.5)
+
+    return {"filename": file.filename, "message": "Scan complete!"}
 
 @app.get("/files/{name}")
 async def get_file(name: str):
