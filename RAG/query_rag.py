@@ -1,7 +1,7 @@
-from webbrowser import get
 from langchain_community.vectorstores import Chroma
 from langchain.chains import RetrievalQA
 from langchain_aws import ChatBedrock
+
 import os
 from ragModel import get_embedded_function
 
@@ -16,10 +16,14 @@ def load_db():
     return db
 
 def get_llm():
+
     llm = ChatBedrock(
-
-
+        model_id="anthropic.claude-3-haiku-20240307-v1:0",
+        aws_access_key_id=os.getenv("AWS_ACCESS_KEY"),
+        aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+        region_name="us-east-2"
     )
+    return llm
 
 def query_rag(question):
     db = load_db()
