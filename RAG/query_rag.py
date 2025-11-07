@@ -17,7 +17,7 @@ def load_db():
 
 def get_llm():
     llm = ChatBedrock(
-        
+
 
     )
 
@@ -35,7 +35,7 @@ def query_rag(question):
     result = qa.invoke({"query": question})
     print("Answer:", result["result"])
 
-    print("\n📄 Sources:")
+    print("Sources:")
     for doc in result["source_documents"]:
         print(" -", doc.metadata.get("source", "Unknown"), "|", doc.page_content[:200])
 
