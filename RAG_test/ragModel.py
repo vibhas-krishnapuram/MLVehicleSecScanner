@@ -1,10 +1,8 @@
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
-#from langchain_community.embeddings.bedrock import BedrockEmbeddings
 from langchain_openai import OpenAIEmbeddings
 from langchain_aws import BedrockEmbeddings
-
 import os
 
 

@@ -4,7 +4,7 @@ from fastapi import FastAPI, UploadFile, File, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 import boto3
-from scan_AI import scan_file
+from scan_AI import scan_file, scan_file_with_rag
 import uuid
 import time
 from botocore.exceptions import ClientError
@@ -67,7 +67,8 @@ async def upload_file(file: UploadFile = File(...)):
 
 
     s3_client.upload_fileobj(file.file, S3_BUCKET, upload_location)
-    response_location = scan_file(s3_client, S3_BUCKET, upload_location)
+  ##  response_location = scan_file(s3_client, S3_BUCKET, upload_location)
+    response_location = scan_file_with_rag(s3_client, S3_BUCKET, upload_location) 
 
     for _ in range(15):
         try:
