@@ -34,8 +34,8 @@ items = []
 files = {}
 
 ### AWS BUCKET
-S3_BUCKET = "ml-vehiclefiles-bucket"
-REGION = 'us-east-2'
+S3_BUCKET = os.getenv("S3_BUCKET_NAME")
+REGION = os.getenv("AWS_REGION")
 
 s3 = boto3.resource(
                     's3',
