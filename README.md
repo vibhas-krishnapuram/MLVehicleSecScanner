@@ -80,11 +80,6 @@ cd frontend
 npm install
 ```
 
-3. Configure API endpoint in `.env`:
-```
-VITE_API_URL=http://localhost:8000
-```
-
 ## Usage
 
 ### Starting the Backend
